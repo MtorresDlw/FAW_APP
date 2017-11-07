@@ -5,6 +5,7 @@
   "author": "MTO",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "webpack": "^3.8.1"
   }
 }
