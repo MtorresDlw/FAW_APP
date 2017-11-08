@@ -3,8 +3,8 @@ import express from 'express';
 
 const PATHS = {
     CLT_INDEX : path.join(__dirname, 'app', 'index.js'),
-    DEV_DIR : path.join(__dirname, 'app', 'releases', 'dev'),
-    DIST_DIR : path.join(__dirname, 'app', 'releases', 'dist')
+    DEV_DIR : path.join(__dirname, 'releases', 'dev'),
+    DIST_DIR : path.join(__dirname, 'releases', 'dist')
 };
 
 // Déclaration du port local :
