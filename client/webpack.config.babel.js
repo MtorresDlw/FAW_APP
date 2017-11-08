@@ -1,9 +1,10 @@
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const PATHS = {
-    CLT_INDEX : path.join(__dirname, '..', 'app', 'index.js'),
-    DEV_DIR : path.join(__dirname, '..', 'app', 'releases', 'dev'),
-    DIST_DIR : path.join(__dirname, '..', 'app', 'releases', 'dist')
+    CLT_INDEX : path.join(__dirname, 'app', 'index.js'),
+    DEV_DIR : path.join(__dirname, 'app', 'releases', 'dev'),
+    DIST_DIR : path.join(__dirname, 'app', 'releases', 'dist')
 };
 
 module.exports = {
@@ -17,7 +18,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['.js', '.jsx']
     },
 
     module: {
@@ -38,5 +39,10 @@ module.exports = {
 
     plugins: [
         // on configure les plugins utiles à notre projet
+        new HtmlWebpackPlugin({
+            template: './index.html',
+            inject: 'body',
+            title: 'FAW'
+        }),
     ]
-},
+}
