@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './css/dashboard.css';
 
 class Dashboard extends Component {
 
@@ -6,7 +7,7 @@ class Dashboard extends Component {
 
         return (
             <div className="dashboard">
-                <p>Dashboard !</p>
+                <p className="jaune">Dashboard !</p>
             </div>
         );
     }
