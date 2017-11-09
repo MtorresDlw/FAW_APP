@@ -7,7 +7,7 @@ class Dashboard extends Component {
 
         return (
             <div className="dashboard">
-                <p className="jaune">Dashboard !</p>
+                <p>Dashboard !</p>
             </div>
         );
     }

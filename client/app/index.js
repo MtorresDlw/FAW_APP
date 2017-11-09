@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/css/global.css';
+import 'normalize.css';
 
 import Dashboard from './modules/dashboard/components/dashboard';
 
