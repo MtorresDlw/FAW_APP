@@ -48,6 +48,29 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.((woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(woff2?|svg)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000
+                }
+            },
+            {
+                test: /\.(jpg|gif)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]'
+                }
+            },
+            {
+                test: /\.png$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 100000,
+                    mimetype: 'image/png',
+                    name: '[path][name].[ext]'
+                },
+            },
+            {
                 test: /\.css$/,
                 use: [
                     'style-loader',
