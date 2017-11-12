@@ -1,4 +1,5 @@
 import path from 'path';
+import webpack from 'webpack';
 import stylelint from 'stylelint';
 import postcssReporter from 'postcss-reporter';
 import autoprefixer from 'autoprefixer';
@@ -22,12 +23,16 @@ const processors = [
 
 module.exports = {
     // le point d'entrée de notre application :
-    entry: PATHS.CLT_INDEX,
+    entry: [
+        'webpack-hot-middleware/client',
+        PATHS.CLT_INDEX,
+    ],
     // le point de sortie vers lequel sera compilé tout le code
     // de notre projet
     output: {
         path: PATHS.DEV_DIR,
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/',
     },
 
     resolve: {
@@ -55,13 +60,13 @@ module.exports = {
                 }
             },
             {
-                test: /\.(jpg|gif)$/,
+                test: /\.(jpg|gif|png)$/,
                 loader: 'file-loader',
                 options: {
                     name: '[path][name].[ext]'
                 }
             },
-            {
+            /*{
                 test: /\.png$/,
                 loader: 'url-loader',
                 options: {
@@ -69,7 +74,7 @@ module.exports = {
                     mimetype: 'image/png',
                     name: '[path][name].[ext]'
                 },
-            },
+            },*/
             {
                 test: /\.css$/,
                 use: [
@@ -90,7 +95,7 @@ module.exports = {
     },
 
     plugins: [
-        // on configure les plugins utiles à notre projet
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './index.html',
             inject: 'body',

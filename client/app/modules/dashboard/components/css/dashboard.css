@@ -3,8 +3,4 @@
 .dashboard {
     background-color: firebrick;
     display: flex;
-
-    p {
-        color: beige;
-    }
 }
